@@ -54,14 +54,6 @@ class FeishuRequest:
     def get_tenant_access_token(self, app_id: str, app_secret: str) -> dict:
         """
         refer: https://open.feishu.cn/document/server-docs/authentication-management/access-token/tenant_access_token_internal
-        API url: https://open.feishu.cn/document/server-docs/authentication-management/access-token/tenant_access_token_internal
-        Example Response:
-        {
-            "code": 0,
-            "msg": "ok",
-            "tenant_access_token": "t-caecc734c2e3328a62489fe0648c4b98779515d3",
-            "expire": 7200
-        }
         """
         url = f"{self.API_BASE_URL}/auth/v3/tenant_access_token/internal"
         payload = {"app_id": app_id, "app_secret": app_secret}
@@ -73,7 +65,7 @@ class FeishuRequest:
 
     def get_wiki_nodes(self, space_id: str, parent_node_token: str, page_token: str, page_size: int = 20) -> dict:
         # 获取知识库全部子节点列表
-        url = f"{self.API_BASE_URL}wiki/v2/spaces/{space_id}/nodes"
+        url = f"{self.API_BASE_URL}/wiki/v2/spaces/{space_id}/nodes"
         payload = {
             "space_id": space_id,
             "parent_node_token": parent_node_token,
@@ -88,7 +80,7 @@ class FeishuRequest:
     def create_wiki_node(self, space_id:str, title: str, parent_node_token:str,
                          obj_type:str ="docx",node_type:str="origin",origin_node_token:str=None) -> dict:
         """
-        refer: https://open.feishu.cn/document/server-docs/docs/wiki-v2/space-node/create?appId=cli_a865d45cdb3d901c
+        refer: https://open.feishu.cn/document/server-docs/docs/wiki-v2/space-node/create
         """
         url = f"{self.API_BASE_URL}/wiki/v2/spaces/{space_id}/nodes"
         payload = {
