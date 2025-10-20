@@ -1,4 +1,4 @@
-version: 0.0.1
+version: 0.0.2
 type: plugin
 author: zhaojiedi1992
 name: dify_plugin_feishu_wiki
@@ -12,8 +12,8 @@ description:
   ja_JP: 'dify plugin feishu wiki '
   zh_Hans: 'dify plugin feishu wiki '
   pt_BR: 'dify plugin feishu wiki '
-icon: icon.svg
-icon_dark: icon-dark.svg
+icon: icon.png
+icon_dark: icon.png
 resource:
   memory: 268435456
   permission:
@@ -23,14 +23,14 @@ plugins:
   tools:
     - provider/dify_plugin_feishu_wiki.yaml
 meta:
-  version: 0.0.1
+  version: 0.0.2
   arch:
     - amd64
     - arm64
   runner:
-    language: python
-    version: "3.12"
     entrypoint: main
+    language: python
+    version: "3.13"
   minimum_dify_version: null
 created_at: 2025-10-20T11:38:06.012684864+08:00
 privacy: PRIVACY.md

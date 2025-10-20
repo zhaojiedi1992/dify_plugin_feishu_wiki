@@ -1,62 +1,44 @@
-identity:
-  author: "zhaojiedi1992"
-  name: "dify_plugin_feishu_wiki"
-  label:
-    en_US: "dify_plugin_feishu_wiki"
-    zh_Hans: "dify_plugin_feishu_wiki"
-    pt_BR: "dify_plugin_feishu_wiki"
-    ja_JP: "dify_plugin_feishu_wiki"
-  description:
-    en_US: "dify plugin feishu wiki "
-    zh_Hans: "dify plugin feishu wiki "
-    pt_BR: "dify plugin feishu wiki "
-    ja_JP: "dify plugin feishu wiki "
-  icon: "icon.svg"
-
-#########################################################################################
-# If you want to support OAuth, you can uncomment the following code.
-#########################################################################################
-# oauth_schema:
-#   client_schema:
-#     - name: "client_id"
-#       type: "secret-input"
-#       required: true
-#       url: https://example.com/oauth/authorize
-#       placeholder:
-#         en_US: "Please input your Client ID"
-#         zh_Hans: "请输入你的 Client ID"
-#         pt_BR: "Insira seu Client ID"
-#       help:
-#         en_US: "Client ID is used to authenticate requests to the example.com API."
-#         zh_Hans: "Client ID 用于认证请求到 example.com API。"
-#         pt_BR: "Client ID é usado para autenticar solicitações à API do example.com."
-#       label:
-#         zh_Hans: "Client ID"
-#         en_US: "Client ID"
-#     - name: "client_secret"
-#       type: "secret-input"
-#       required: true
-#       url: https://example.com/oauth/authorize
-#       placeholder:
-#         en_US: "Please input your Client Secret"
-#         zh_Hans: "请输入你的 Client Secret"
-#         pt_BR: "Insira seu Client Secret"
-#       help:
-#         en_US: "Client Secret is used to authenticate requests to the example.com API."
-#         zh_Hans: "Client Secret 用于认证请求到 example.com API。"
-#         pt_BR: "Client Secret é usado para autenticar solicitações à API do example.com."
-#       label:
-#         zh_Hans: "Client Secret"
-#         en_US: "Client Secret"
-#   credentials_schema:
-#     - name: "access_token"
-#       type: "secret-input"
-#       label:
-#         zh_Hans: "Access Token"
-#         en_US: "Access Token"
-
-tools:
-  - tools/dify_plugin_feishu_wiki.yaml
+credentials_for_provider:
+  app_id:
+    help:
+      en_US: Get your app_id and app_secret from Feishu
+      zh_Hans: 从飞书获取您的 app_id 和 app_secret
+    label:
+      en_US: APP ID
+    placeholder:
+      en_US: Please input your feishu app id
+      zh_Hans: 请输入你的飞书 app id
+    required: true
+    type: text-input
+    url: https://open.larkoffice.com/app
+  app_secret:
+    label:
+      en_US: APP Secret
+    placeholder:
+      en_US: Please input your app secret
+      zh_Hans: 请输入你的飞书 app secret
+    required: true
+    type: secret-input
 extra:
   python:
     source: provider/dify_plugin_feishu_wiki.py
+identity:
+  author: zhaojiedi1992
+  description:
+    en_US: 'Feishu Wiki, requires the following permissions: wiki:wiki:readonly.
+
+      '
+    zh_Hans: '飞书知识库，需要开通以下权限: wiki:wiki:readonly。
+
+      '
+  icon: icon.png
+  label:
+    en_US: Feishu Wiki
+    zh_Hans: 飞书知识库
+  name: dify_plugin_feishu_wiki
+  tags:
+  - social
+  - productivity
+tools:
+- tools/get_wiki_nodes.yaml
+- tools/create_wiki_node.yaml

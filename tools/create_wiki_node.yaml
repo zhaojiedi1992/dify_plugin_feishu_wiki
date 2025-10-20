@@ -1,0 +1,81 @@
+description:
+  human:
+    en_US: 'create wiki node ,refer : https://open.feishu.cn/document/server-docs/docs/wiki-v2/space-node/create?appId=cli_a865d45cdb3d901c'
+    zh_Hans: '创建知识库的节点，这个节点可为docx、sheet等，详情参考https://open.feishu.cn/document/server-docs/docs/wiki-v2/space-node/create?appId=cli_a865d45cdb3d901c'
+  llm: A tool for create wiki node (创建wiki节点)
+extra:
+  python:
+    source: tools/create_wiki_node.py
+identity:
+  author: zhaojiedi1992
+  label:
+    en_US: create wiki node
+    zh_Hans: 创建知识库节点
+  name: create_wiki_node
+parameters:
+- form: llm
+  human_description:
+    en_US: 'The ID of the knowledge space. Supports space link URL, for example: https://open.feishu.cn/document/server-docs/docs/wiki-v2/wiki-overview'
+    zh_Hans: 知识空间 ID，支持空间链接 URL，例如：https://open.feishu.cn/document/server-docs/docs/wiki-v2/wiki-overview
+  label:
+    en_US: Space Id
+    zh_Hans: 知识空间 ID
+  llm_description: 知识空间 ID，支持空间链接 URL，例如：https://open.feishu.cn/document/server-docs/docs/wiki-v2/wiki-overview
+  name: space_id
+  required: true
+  type: string
+- form: llm
+  human_description:
+    en_US: The token of the parent node.
+    zh_Hans: 父节点 token
+  label:
+    en_US: Parent Node Token
+    zh_Hans: 父节点 token
+  llm_description: 父节点 token
+  name: parent_node_token
+  required: true
+  type: string
+- form: llm
+  human_description:
+    en_US: 'Document type. For shortcut, this field is the obj_type of the corresponding entity. Available values: docx (document), sheet (spreadsheet), mindnote (mind map), bitable (multidimensional table), file (file).'
+    zh_Hans: '文档类型，对于快捷方式，该字段是对应的实体的 obj_type。可选值：docx（文档）、sheet（表格）、mindnote（思维导图）、bitable（多维表格）、file（文件）。'
+  label:
+    en_US: Object Type
+    zh_Hans: 文档类型
+  llm_description: 文档类型，可选值为 docx、sheet、mindnote、bitable、file
+  name: obj_type
+  required: false
+  type: string
+- form: llm
+  human_description:
+    en_US: 'Node type. Available values: origin (entity), shortcut (shortcut).'
+    zh_Hans: '节点类型，可选值：origin（实体）、shortcut（快捷方式）。'
+  label:
+    en_US: Node Type
+    zh_Hans: 节点类型
+  llm_description: 节点类型，可选值为 origin、shortcut
+  name: node_type
+  required: false
+  type: string
+- form: llm
+  human_description:
+    en_US: 'The node_token of the entity corresponding to the shortcut. This value is not empty when the node is a shortcut.'
+    zh_Hans: '快捷方式对应的实体 node_token，当节点为快捷方式时，该值不为空。'
+  label:
+    en_US: Origin Node Token
+    zh_Hans: 实体节点 token（快捷方式用）
+  llm_description: 快捷方式对应的实体 node_token，节点为快捷方式时需填
+  name: origin_node_token
+  required: false
+  type: string
+- form: llm
+  human_description:
+    en_US: Document title.
+    zh_Hans: 文档标题
+  label:
+    en_US: Title
+    zh_Hans: 文档标题
+  llm_description: 文档标题
+  name: title
+  required: true
+  type: string
