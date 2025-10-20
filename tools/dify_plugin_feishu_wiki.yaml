@@ -1,0 +1,34 @@
+identity:
+  name: "dify_plugin_feishu_wiki"
+  author: "zhaojiedi1992"
+  label:
+    en_US: "dify_plugin_feishu_wiki"
+    zh_Hans: "dify_plugin_feishu_wiki"
+    pt_BR: "dify_plugin_feishu_wiki"
+    ja_JP: "dify_plugin_feishu_wiki"
+description:
+  human:
+    en_US: "dify plugin feishu wiki "
+    zh_Hans: "dify plugin feishu wiki "
+    pt_BR: "dify plugin feishu wiki "
+    ja_JP: "dify plugin feishu wiki "
+  llm: "dify plugin feishu wiki "
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Query string
+      zh_Hans: 查询语句
+      pt_BR: Query string
+      ja_JP: クエリ文字列
+    human_description:
+      en_US: "dify plugin feishu wiki "
+      zh_Hans: "dify plugin feishu wiki "
+      pt_BR: "dify plugin feishu wiki "
+      ja_JP: "dify plugin feishu wiki "
+    llm_description: "dify plugin feishu wiki "
+    form: llm
+extra:
+  python:
+    source: tools/dify_plugin_feishu_wiki.py
